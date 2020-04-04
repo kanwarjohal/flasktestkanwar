@@ -6,11 +6,11 @@ import os
 
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://postgres:rawnak88@localhost:5432/test"
+app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql:///test"
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 # app.config.from_object(os.environ['APP_SETTINGS'])
-# app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 # from models import Loading
 class Loading(db.Model):
